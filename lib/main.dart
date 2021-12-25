@@ -10,57 +10,78 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'All about Dekom',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    double iconSize = MediaQuery.of(context).size.height * .2;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.engineering,
+                  size: iconSize,
+                  color: Colors.blueGrey[900],
+                ),
+                Icon(
+                  Icons.construction,
+                  size: iconSize,
+                  color: Colors.blueGrey[900],
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 40,
             ),
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              "Under development",
+              style: Theme.of(context).textTheme.headline2?.copyWith(
+                color: Colors.blueGrey[900],
+              ),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.only(
+          top: 10,
+          bottom: 10,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(10),
+            topRight: Radius.circular(10),
+          ),
+          color: Colors.blueGrey.withOpacity(.5),
+        ),
+        child: Text(
+          "This web created using Flutter",
+          style: Theme.of(context).textTheme.bodyText2?.copyWith(
+            color: Colors.blueGrey[700],
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
