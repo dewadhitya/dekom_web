@@ -65,8 +65,8 @@ jobs:
           flutter build web --release
           cd build/web
           git init
-          git config --global user.email your@email.com #change to your e-mail
-          git config --global user.name changeme #change to your user-name
+          git config --global user.email dewa.adhitya21@email.com #change to your e-mail
+          git config --global user.name dewadhitya #change to your user-name
           git status
           git remote add origin https://${{secrets.commit_secret}}@github.com/dewadhitya/dekom_web.git #change to your path
           git checkout -b gh-pages
